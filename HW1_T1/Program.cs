@@ -13,9 +13,9 @@ namespace HW1_T1
             Console.WriteLine("Enter the \"z\" num");
             double z = Double.Parse(Console.ReadLine());
 
-            Console.WriteLine("First = " + (x + y) * (z * z + 1));
-            Console.WriteLine("Second = " + ((x % z) - 1) * (Math.Sqrt(y)));
-            Console.WriteLine("Third = " + (((x * y) + (y * z)) / (Math.Pow(z, 3))));
+            Console.WriteLine("First expression result: " + (x + y) * (z * z + 1));
+            Console.WriteLine("Second expression result: " + ((x % z) - 1) * (Math.Sqrt(y)));
+            Console.WriteLine("Third expression result: " + (((x * y) + (y * z)) / (Math.Pow(z, 3))));
         }
     }
 }

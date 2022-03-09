@@ -10,88 +10,43 @@ namespace HW1_T2
             double hight = 0;
             double length = 0;
 
-            while (true)
-            {
-                Console.WriteLine("Enter the width");
-                string consoleInput = Console.ReadLine();
-                if (Double.TryParse(consoleInput, out width) == false)
-                {
-                    Console.WriteLine("Enter the number, not a string!");
-                }
-                else
-                {
-                    if (width == 0)
-                    {
-                        Console.WriteLine("Width can't be 0");
-                    }
-                    if (width < 0)
-                    {
-                        Console.WriteLine("Width can't be negative");
-                    }
-                    if (width > 0)
-                    {
-                        break;
-                    }
-                }
-
-            }
-
-            while (true)
-            {
-                Console.WriteLine("Enter the hight");
-                string consoleInput = Console.ReadLine();
-                if (Double.TryParse(consoleInput, out hight) == false)
-                {
-                    Console.WriteLine("Enter the number, not a string!");
-                }
-                else
-                {
-                    if (hight == 0)
-                    {
-                        Console.WriteLine("Hight can't be 0");
-                    }
-                    if (hight < 0)
-                    {
-                        Console.WriteLine("Hight can't be negative");
-                    }
-                    if (hight > 0)
-                    {
-                        break;
-                    }
-                }
-
-            }
-
-            while (true)
-            {
-                Console.WriteLine("Enter the length");
-                string consoleInput = Console.ReadLine();
-                if (Double.TryParse(consoleInput, out length) == false)
-                {
-                    Console.WriteLine("Enter the number, not a string!");
-                }
-                else
-                {
-                    if (length == 0)
-                    {
-                        Console.WriteLine("Length can't be 0");
-                    }
-                    if (length < 0)
-                    {
-                        Console.WriteLine("Length can't be negative");
-                    }
-                    if (length > 0)
-                    {
-                        break;
-                    }
-                }
-
-            }
-
+            width = PropertyInputCheck(width, "Width");
+            hight = PropertyInputCheck(hight, "Hight");
+            length = PropertyInputCheck(length, "Length");
 
             double diagonalLength = Math.Sqrt(Math.Pow(width, 2) + Math.Pow(hight, 2) + Math.Pow(length, 2));
 
             Console.WriteLine("Parallelepiped diagonal length: " + diagonalLength);
+        }
+
+        static double PropertyInputCheck(double property, string varString)
+        {
+            while (true)
+            {
+                Console.WriteLine($"Enter the {varString}");
+                string consoleInput = Console.ReadLine();
+                if (Double.TryParse(consoleInput, out property) == false)
+                {
+                    Console.WriteLine("Enter the number, not a string!");
+                }
+                else
+                {
+                    if (property == 0)
+                    {
+                        Console.WriteLine($"{varString} can't be 0");
+                    }
+                    if (property < 0)
+                    {
+                        Console.WriteLine($"{varString} can't be negative");
+                    }
+                    if (property > 0)
+                    {
+                        break;
+                    }
+                }
+
+            }
+            return property;
         }
     }
 }

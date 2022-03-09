@@ -1,29 +1,29 @@
 ﻿using System;
 
-namespace HW1_T1
+namespace HW1_T2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            double x = 0;
-            double y = 0;
-            double z = 0;
+            double width = 0;
+            double hight = 0;
+            double length = 0;
 
-            x = PropertyInputCheck(x, "x");
-            y = PropertyInputCheck(y, "y");
-            z = PropertyInputCheck(z, "z");
+            width = PropertyInputCheck(width, "Width");
+            hight = PropertyInputCheck(hight, "Hight");
+            length = PropertyInputCheck(length, "Length");
 
-            Console.WriteLine("First expression result: " + (x + y) * (z * z + 1));
-            Console.WriteLine("Second expression result: " + ((x % z) - 1) * (Math.Sqrt(y)));
-            Console.WriteLine("Third expression result: " + (((x * y) + (y * z)) / (Math.Pow(z, 3))));
+            double diagonalLength = Math.Sqrt(Math.Pow(width, 2) + Math.Pow(hight, 2) + Math.Pow(length, 2));
+
+            Console.WriteLine("Parallelepiped diagonal length: " + diagonalLength);
         }
 
         static double PropertyInputCheck(double property, string varString)
         {
             while (true)
             {
-                Console.WriteLine($"Enter the {varString} num");
+                Console.WriteLine($"Enter the {varString}");
                 string consoleInput = Console.ReadLine();
                 if (Double.TryParse(consoleInput, out property) == false)
                 {

@@ -8,17 +8,12 @@ namespace HW2_T2
         {
             double firstOperand = 0;
             double secondOperand = 0;
-            
 
             firstOperand = PropertyInputCheck(firstOperand, "First Operand");
             secondOperand = PropertyInputCheck(secondOperand, "Second Operand");
-            string operation = OperationInputCheck();
-            Calculate(firstOperand, secondOperand, operation);
-
-
+            string operationSign = OperationInputCheck();
+            Calculate(firstOperand, secondOperand, operationSign);
         }
-
-        
 
         static double PropertyInputCheck(double property, string varString)
         {
@@ -32,7 +27,7 @@ namespace HW2_T2
                 }
                 else
                 {
-                        break;
+                    break;
                 }
             }
             return property;
@@ -56,7 +51,6 @@ namespace HW2_T2
                 }
                 Console.WriteLine("Entered operation is not supported");
             }
-            
         }
 
         static void Calculate(double firstOperand, double secondOperand, string operationSign)
@@ -78,9 +72,7 @@ namespace HW2_T2
                 case "^":
                     Console.WriteLine($"{firstOperand} {operationSign} {secondOperand} = {Math.Pow(firstOperand,secondOperand)}");
                     break;
-                
             }
         }
-
     }
 }

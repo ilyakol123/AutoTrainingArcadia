@@ -7,10 +7,8 @@ namespace HW3_1
         static void Main(string[] args)
         {
             Matrix matrix = new Matrix();
-            matrix.MatrixInitialization();
-
-           
-
+            Console.WriteLine("Matrix Trace =  "+ matrix.MatrixTraceCalculation(matrix.MatrixInitialization()));
+            Console.ReadKey();
         }
     }
 }

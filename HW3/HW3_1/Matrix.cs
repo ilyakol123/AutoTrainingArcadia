@@ -12,21 +12,24 @@ namespace HW3_1
         private int MatrixColumnsNumber { get; set; }
         private double MatrixTrace { get; set; }
         private double [,] UserMatrix { get; set; }
-        public double [,] MatrixInitialization()
+        
+        
+        public Matrix MatrixInitialization()
         {
             Matrix matrix = new Matrix();
             var randomGenerator = new Random();
             int maxValueForDoubleRandom = 100;
-            Console.WriteLine("Enter matrix rows number ");
-            matrix.MatrixRowsNumber = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter matrix columns number ");
-            matrix.MatrixColumnsNumber = int.Parse(Console.ReadLine());
+            
+            matrix.MatrixRowsNumber = SizeInput("rows");
 
+            Console.WriteLine("");
+
+            
+            matrix.MatrixColumnsNumber = SizeInput("columns");
+
+            Console.WriteLine("");
             matrix.UserMatrix = new double[matrix.MatrixRowsNumber, matrix.MatrixColumnsNumber];
-            
-            
-
             
             for (int i = 0; i < matrix.UserMatrix.GetLength(0); i++)
             {
@@ -35,6 +38,7 @@ namespace HW3_1
                     matrix.UserMatrix[i, j] = randomGenerator.NextDouble() * maxValueForDoubleRandom;
                 }
             }
+
             Console.WriteLine("CHECK THE MATRIX:");
             for (int i = 0; i < matrix.UserMatrix.GetLength(0); i++)
             {
@@ -44,15 +48,53 @@ namespace HW3_1
                 }
                 Console.WriteLine("");
             }
-            return matrix.UserMatrix;
+            Console.WriteLine("");
+            return matrix;
         }    
 
         public double MatrixTraceCalculation(Matrix matrix)
         {
-
+           
+            for (int i = 0; i < matrix.UserMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.UserMatrix.GetLength(1); j++)
+                {
+                    if (i==j)
+                    {
+                        matrix.MatrixTrace += matrix.UserMatrix[i, j];
+                    }
+                }
+            }
 
             return matrix.MatrixTrace;
         }
-            
+
+        static int SizeInput(string varString)
+        {
+            int size = 0;
+            while (true)
+            {
+                Console.WriteLine($"Enter matrix {varString} number");
+                string consoleInput = Console.ReadLine();
+                if (int.TryParse(consoleInput, out size) == false)
+                {
+                    Console.WriteLine($"Enter the {varString} Integer number!");
+                    Console.WriteLine("");
+                }
+                else
+                {
+                        if (size <= 0)
+                        {
+                            Console.WriteLine($"{varString} number can't be <= 0");
+                            Console.WriteLine("");
+                            continue;
+                        }
+                    
+                    break;
+                }
+            }
+            return size;
+        }
+
     }
 }
